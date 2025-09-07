@@ -20,6 +20,24 @@ function fs.getRootStamp()
   return out
 end
 
+---Get the name of the running OS.
+---@return 'Windows'|'Linux'
+function fs.getOS()
+  local nullDevice = package.config:sub(1,1) == "\\" and "NUL" or "/dev/null"
+
+  local uname = io.popen('uname -s 2>' .. nullDevice)
+  if uname then
+    local osname = uname:read('*l')
+    uname:close()
+
+    if osname then
+      return osname
+    end
+  end
+
+  return "Windows"
+end
+
 ---@return boolean
 function fs.releaseExists()
   local handle = io.open('/etc/os-release', 'rb')
