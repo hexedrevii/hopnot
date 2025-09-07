@@ -3,7 +3,7 @@ local logos = require 'logos'
 local strutils = require 'src.strutils'
 local parser   = require 'lib.parser'
 
-if fs.getOS ~= 'Linux' then
+if fs.getOS() ~= 'Linux' then
   print([[We are sorry! :(
 This application was made to only run on Linux!
 Please install Linux and run this application again.]])
