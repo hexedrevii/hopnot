@@ -46,10 +46,10 @@ If you want to turn the program into an executable, you will need luarocks, luas
 
 ```bash
 # Ubuntu/Debian
-sudo apt install liblua5.4-dev gcc g++ make
+sudo apt install liblua5.4-dev gcc g++ make luarocks
 
 # Fedora
-sudo apt install lua-devel gcc g++ make
+sudo apt install lua-devel gcc g++ make luarocks
 ```
 
 Now, we can compile by using luastatic.
