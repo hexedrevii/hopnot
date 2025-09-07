@@ -3,6 +3,12 @@ local logos = require 'logos'
 local strutils = require 'src.strutils'
 local parser   = require 'lib.parser'
 
+if fs.getOS ~= 'Linux' then
+  print([[We are sorry! :(
+This application was made to only run on Linux!
+Please install Linux and run this application again.]])
+end
+
 ---Format time
 ---@param time number
 ---@param suffix string
@@ -48,6 +54,7 @@ if args:hasFlag('list-logos') then
   os.exit(0)
 end
 
+-- Setup os data.
 if not fs.releaseExists() then
   print('The /etc/os-release file does not exist in your system!')
   os.exit(1)
@@ -92,6 +99,7 @@ local out = {
 
 strutils.zip((args:hasFlag('nologo') and {} or ascii), out)
 
+-- It looks wrong without the two spaces for some reason
 if args:hasFlag('nologo') then
   print('\n')
 end
