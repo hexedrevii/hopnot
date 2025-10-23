@@ -61,7 +61,7 @@ function fs.getDistroData()
   }
 
   local foundName = false
-  local foundId   = true
+  local foundId   = false
 
   for line in io.lines('/etc/os-release') do
     local tokens = strutils.split(line, '=')
